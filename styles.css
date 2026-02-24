@@ -60,15 +60,6 @@ button:hover {
   filter: brightness(1.05);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  padding: 0.35rem 0;
-}
-
 .hidden {
   display: none;
 }
@@ -92,4 +83,34 @@ li {
 
 .frequency-table tbody tr:nth-child(even) {
   background: rgba(255, 255, 255, 0.06);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0 1rem;
+}
+
+.results-table th,
+.results-table td {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.6rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.results-table thead {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.results-table p {
+  margin: 0 0 0.45rem;
+}
+
+.results-table p:last-child {
+  margin-bottom: 0;
+}
+
+.hidden-value {
+  display: none;
 }
