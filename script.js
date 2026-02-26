@@ -73,10 +73,16 @@ function birthNumberFromDate(dateText) {
   return reduceNumber(day);
 }
 
-function kuaNumberFromDate(dateText) {
+function kuaNumberFromDate(dateText, gender) {
   const [year] = dateText.split('-').map(Number);
-  const reducedYear = reduceNumber(sumDigits(String(year)));
-  let kua = 11 - reducedYear;
+  const lastTwoDigits = year % 100;
+  const reducedLastTwoDigits = reduceNumber(lastTwoDigits);
+
+  if (gender === 'female') {
+    return reduceNumber(reducedLastTwoDigits + 5);
+  }
+
+  let kua = 10 - reducedLastTwoDigits;
   while (kua <= 0) kua += 9;
   return reduceNumber(kua);
 }
@@ -154,10 +160,10 @@ function getSpecialFrequencyTableRows(fullName) {
   }));
 }
 
-function getDobInsights(dateText) {
+function getDobInsights(dateText, gender) {
   const luckyNumber = lifePathFromDate(dateText);
   const birthNumber = birthNumberFromDate(dateText);
-  const kuaNumber = kuaNumberFromDate(dateText);
+  const kuaNumber = kuaNumberFromDate(dateText, gender);
   const year = new Date().getFullYear();
   const [y, m, d] = dateText.split('-').map(Number);
   const personalYear = reduceNumber(sumDigits(String(m)) + sumDigits(String(d)) + sumDigits(String(year)));
@@ -208,11 +214,12 @@ document.getElementById('numerology-form').addEventListener('submit', (event) =>
 
   const fullName = document.getElementById('fullName').value.trim();
   const birthDate = document.getElementById('birthDate').value;
+  const gender = document.getElementById('gender').value;
   if (!fullName || !birthDate) return;
 
   const lifePath = lifePathFromDate(birthDate);
   const nameInsights = getNameInsights(fullName);
-  const dobInsights = getDobInsights(birthDate);
+  const dobInsights = getDobInsights(birthDate, gender);
   const expression = nameInsights.destinyNumber;
   const soulUrge = nameInsights.heartNumber;
   const personality = nameInsights.personalityNumber;
