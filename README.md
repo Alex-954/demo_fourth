@@ -62,6 +62,22 @@ npm run android:open
 
 From Android Studio, choose an emulator/device and click **Run**.
 
+### 6) Build an installable APK (debug)
+
+```bash
+npm run android:apk
+```
+
+The APK will be generated at:
+
+- `android/app/build/outputs/apk/debug/app-debug.apk`
+
+Install it to a connected phone (USB debugging enabled):
+
+```bash
+adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+```
+
 ## Notes
 
 - `www/` is generated from the root web files (`index.html`, `styles.css`, `script.js`).
