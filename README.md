@@ -112,3 +112,24 @@ npm run android:sync
 
 Then rebuild/re-run from Android Studio so the Android app includes your latest web changes.
 
+## Generate an APK (single command)
+
+After dependencies are available, you can build an installable debug APK with:
+
+```bash
+./scripts/make-apk.sh
+```
+
+Or with npm scripts:
+
+```bash
+npm run apk:debug
+npm run apk:path
+```
+
+Expected output file:
+
+- `android/app/build/outputs/apk/debug/app-debug.apk`
+
+> Note: In this environment, package registry access is blocked (HTTP 403), so I could not fetch Capacitor packages or produce the APK artifact here. On your machine with normal npm access, the commands above will generate the APK.
+
