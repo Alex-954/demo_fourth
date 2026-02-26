@@ -114,3 +114,39 @@ button:hover {
 .hidden-value {
   display: none;
 }
+
+
+select {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100%, 100vw);
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .results-table,
+  .frequency-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .results-table th,
+  .results-table td,
+  .frequency-table th,
+  .frequency-table td {
+    min-width: 140px;
+  }
+}
